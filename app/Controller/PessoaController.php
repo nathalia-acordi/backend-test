@@ -17,7 +17,7 @@ class PessoaController
     public function index()
     {
         $pessoas = $this->entityManager->getRepository(Pessoa::class)->createQueryBuilder('p')
-            ->where('p.nome LIKE :nome')
+            ->where('lower(p.nome) LIKE lower(:nome)')
             ->setParameter('nome', '%' . $_GET['name'] . '%')
             ->getQuery()
             ->getResult();

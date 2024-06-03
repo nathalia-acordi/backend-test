@@ -12,7 +12,12 @@ class PessoaController {
     }
 
     public function index() {
-        $pessoas = $this->entityManager->getRepository(Pessoa::class)->findAll();
+        $pessoas = $this->entityManager->getRepository(Pessoa::class)->createQueryBuilder('p')
+        ->where('p.nome LIKE :nome')
+        ->setParameter('nome', '%'.$_GET['name'].'%')
+        ->getQuery()
+        ->getResult();
+
         require_once __DIR__ . '/../View/pessoas/index.php';
     }
 

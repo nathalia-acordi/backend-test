@@ -10,7 +10,7 @@ class ContatoController {
     private $entityManager;
 
     public function __construct() {
-        $this->entityManager = (require_once __DIR__ . '../Config/database.php');
+        $this->entityManager = (require_once($_SERVER['DOCUMENT_ROOT'] . '\app\Config\database.php'));
     }
 
     public function index() {

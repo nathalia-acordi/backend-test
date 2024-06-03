@@ -7,8 +7,7 @@ use Doctrine\ORM\ORMSetup;
 use Doctrine\ORM\EntityManager;
 
 $paths = [
-    __DIR__ . '/app/Model/Pessoa.php',
-    __DIR__ . '/app/Model/Contato.php'
+    __DIR__ . '/app/Model/'
 ];
 $isDevMode = true;
 

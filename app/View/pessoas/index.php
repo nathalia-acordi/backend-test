@@ -75,7 +75,14 @@
             margin-right: 10px;
         }
 
-        .add-person {
+        .adicionar-pessoa {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .ver-contato {
             display: block;
             text-align: center;
             margin-bottom: 20px;
@@ -97,11 +104,12 @@
         <div class="search">
             <input type="text" id="search" pattern="[A-z]" value="<?= $_GET['name'] ?>" placeholder="Pesquisar por nome">
         </div>
-        <a class="add-person" href="/public?controller=pessoa&action=create">Adicionar Pessoa</a>
+        <a class="adicionar-pessoa" href="/?controller=pessoa&action=create">Adicionar pessoa</a>
+        <a class="ver-contato" href="/?controller=contato&action=index">Listar contatos</a>
         <table>
             <thead>
                 <tr>
-                    <th>Nomee</th>
+                    <th>Nome</th>
                     <th>CPF</th>
                     <th>Ações</th>
                 </tr>

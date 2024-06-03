@@ -10,5 +10,10 @@
         "symfony/yaml": "^5.4",
         "symfony/cache": "^7.1",
         "symfony/dotenv": "^7.1"
+    },
+    "scripts": {
+        "start": [
+            "php -S 0.0.0.0:9000 ./public/index.php"
+        ]
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
             min-height: 100vh;
             color: #333;
         }
+
         .container {
             background-color: #fff;
             padding: 20px;
@@ -25,17 +27,20 @@
             max-width: 400px;
             box-sizing: border-box;
         }
+
         h1 {
             text-align: center;
             margin-bottom: 20px;
             font-size: 24px;
             color: #007BFF;
         }
+
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
         }
+
         input[type="text"] {
             width: calc(100% - 20px);
             padding: 10px;
@@ -44,6 +49,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -55,14 +61,16 @@
             cursor: pointer;
             box-sizing: border-box;
         }
+
         button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Editar Pessoa</h1>
+        <h1>Editar pessoa</h1>
         <form method="POST" action="?controller=pessoa&action=update">
             <input type="hidden" name="id" value="<?= htmlspecialchars($pessoa->getId()); ?>">
             <label for="nome">Nome:</label>
@@ -73,4 +81,5 @@
         </form>
     </div>
 </body>
+
 </html>

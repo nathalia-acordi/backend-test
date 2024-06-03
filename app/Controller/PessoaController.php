@@ -1,27 +1,32 @@
 <?php
+
 namespace App\Controller;
 
 use App\Model\Pessoa;
 use Doctrine\ORM\EntityManager;
 
-class PessoaController {
+class PessoaController
+{
     private $entityManager;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->entityManager = (require_once($_SERVER['DOCUMENT_ROOT'] . '\app\Config\database.php'));
     }
 
-    public function index() {
+    public function index()
+    {
         $pessoas = $this->entityManager->getRepository(Pessoa::class)->createQueryBuilder('p')
-        ->where('p.nome LIKE :nome')
-        ->setParameter('nome', '%'.$_GET['name'].'%')
-        ->getQuery()
-        ->getResult();
+            ->where('p.nome LIKE :nome')
+            ->setParameter('nome', '%' . $_GET['name'] . '%')
+            ->getQuery()
+            ->getResult();
 
         require_once __DIR__ . '/../View/pessoas/index.php';
     }
 
-    public function create() {
+    public function create()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nome = $_POST['nome'];
             $cpf = $_POST['cpf'];
@@ -39,7 +44,8 @@ class PessoaController {
         }
     }
 
-    public function edit() {
+    public function edit()
+    {
         $id = $_GET['id'];
         $pessoa = $this->entityManager->find(Pessoa::class, $id);
 
@@ -50,7 +56,8 @@ class PessoaController {
         require_once __DIR__ . '/../View/pessoas/edit.php';
     }
 
-    public function update() {
+    public function update()
+    {
         $id = $_POST['id'];
         $pessoa = $this->entityManager->find(Pessoa::class, $id);
 
@@ -66,7 +73,8 @@ class PessoaController {
         header('Location: /?controller=pessoa&action=index');
     }
 
-    public function delete() {
+    public function delete()
+    {
         $id = $_GET['id'];
         $pessoa = $this->entityManager->find(Pessoa::class, $id);
 
